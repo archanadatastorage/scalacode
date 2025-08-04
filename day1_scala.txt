@@ -1,0 +1,1541 @@
+
+set path
+
+jvm : 1.8/11
+scala : 2.12
+spark 3.4
+python : 3.3
+intellij + maven
+
+
+
+
+Programming Paradigm
+
+procedural Programming : function/procedure   - C
+
+def add(a,b):
+	a=a+b
+	return a
+
+add(2,3)
+
+
+Object oriented programming : real world /things(object/instances) : java, .Net
+
+   {attributes + Methods(s)} : object
+
+	object.attributes
+	object.Methods
+
+
+Functional Programming 
+	- Pure object
+
+
+Scala
+
+- Programming lang
+- Martin Odersky
+- 2001
+- general purpose programming paradigm lang
+- JVM
+- scala
+- compiler + intepter
+- scala app
+	REPL/scala shell : 1 scala app
+	program file
+- Variable
+	* Mutable
+	* Immutable
+- implicit datatype
+- case sensitive
+- version sensitive
+- concise
+- scalable
+- statically types
+
+
+var a=100 
+a= a+100
+a=a-20
+
+a= a+100 ; a-20
+scope
+{}
+
+
+if ... else
+
+ no x++/ ++x
+
+loops
+
+
+- while
+- do ... while
+- for(var x<-1 to 5)
+
+
+
+-------------------
+
+Function/Procedures
+
+def nameFunction(parameters):returnTypes =
+{statements}
+
+nameFunction()
+
+
+User defined function
+built-in function
+Anaoymous function : First class value ==== function = object/value
+
+(a:Int,b:int)=> x+y
+
+---------------------
+
+Command history
+
+
+val scc = StreamingContext(sc,Seconds(5))
+val scc = StreamingContext(sc,5)
+val ssc = new StreamingContext(conf, Seconds(1))
+val conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount")
+def curriedsum(x:Int)(y:Int)(z:Int):Int=x+y+z
+curriedsum(1)(2)(3)
+curriedsum(1,2)(3)
+def cal(f:x,y=>x+y,x:Int,y:Int=f(x,y)
+def cal(f:Int,Int=>Int,x:Int,y:Int=f(x,y)
+def cal(f: (Int,Int) => Int,x:Int,y:Int=f(x,y)
+def cal(f: (Int,Int) => Int,x:Int,y:Int)=f(x,y)
+def cal(f: (Int,Int) => Int,f1:(Int,Int):Int,x:Int,y:Int)=f(x,y)
+def cal(f: (Int,Int) => Int,f1:(Int,Int)=>Int,x:Int,y:Int)=f(x,y)
+cal(a,b=>a*b,a,b=>a/b,10,3)
+cal((a,b)=>a*b,(a,b)=>a/b,10,3)
+def add(a:Int,b:Int):Int=
+{
+print("sum")
+return a+b}
+def sub(a:Int,b:Int):Int=
+{
+print("sub")
+return a-b}
+cal(add,sub,10,3)
+def cal(f: (Int,Int) => Int,f1:(Int,Int):Int,x:Int,y:Int)={f(x,y)
+def cal(f: (Int,Int) => Int,f1:(Int,Int):Int,x:Int,y:Int)={f(x,y);f1(x,y)}
+def cal(f: (Int,Int) => Int,f1:(Int,Int)=>Int,x:Int,y:Int)={f(x,y);f1(x,y)}
+cal(add,sub,10,3)
+D
+exit;
+import collage.faulty
+exit;
+quir;
+sc
+val l1 = List(2,3,4,67,90,-10,233)
+val rddl1 = sc.parallelize(l1)
+rddl1.collect()
+val names = List("ram","shyam","mohan","sita","laxman")
+val rddnames = sc.parallelize(names)
+rddnames.collect()
+val pc = sc.textFile("file:\\\C:\Users\Krishna\data\purplecow.txt")
+val pc = sc.textFile("file:\\\C:\\Users\\Krishna\data\\purplecow.txt")
+val pc = sc.textFile("file:\\\C:\\Users\\Krishna\\data\\purplecow.txt")
+val pc = sc.textFile("file:\\\\C:\\Users\\Krishna\\data\\purplecow.txt")
+pc.collect()
+val pc = sc.textFile("file:///C:\\Users\\Krishna\\data\\purplecow.txt")
+pc.collect()
+val shakespeare = sc.textFile("file:///C:\\Users\\Krishna\\data\\shakeaspeare")
+shakespeare.collect()
+val shakespeare = sc.textFile("file:///C:\Users\Krishna\Downloads\shakespeare")
+val shakespeare = sc.textFile("file:///C:\\Users\\Krishna\\Downloads\\shakespeare")
+shakespeare.collect()
+val shakespeare = sc.textFile("file:///C:\\Users\\Krishna\\Downloads\\shakespeare")
+rddl1.collect()
+rval result1 = rddl1.map(x=>x+100)
+val result1 = rddl1.map(x=>x+100)
+result1.collect()
+rddnames.collect()
+val result2= rddnames.map(x=>x.toUpperCase())
+result2.collect()
+result2.count()
+pc.count()
+shakespeare.count()
+pc.first()
+pc.take(2)
+pc.saveAsTextFile("file:///c:\\users\\krishna\\data\\pcdata")
+rddl1.filter(x=>x%2==0).collect()
+val l1 =List(1,4,5,68,8)
+val names = List("ram","shyam","mohan","laxman")
+val rddl1 = sc.parallelize(l1)
+val rddnames = sc.parallelize(names)
+rddl1.collect()
+rddnames.collect()
+val pc = sc.textFile("file:///C:\\Users\\Krishna\\data\\purplecow.txt")
+pc.collect()
+rddl1.stats
+rddl1.stats.collect()
+rddl1.stats()
+rddl1.reduce(_+_)
+def g(x)= List(x-1,x,x+1)
+def g(x:Int)= List(x-1,x,x+1)
+val result= rddl1.map(x=>g(x))
+result.collect()
+val result= rddl1.flatMap(x=>g(x))
+result.collect()
+val emp=(1,"ram",678.90)
+emp._1
+emp._2
+rddnames.collect()
+val l2 = List(1,3,5,3)
+val rddl2 = sc.parallelize(l2)
+val pair1 = rddnames(x=>(x,x.length()))
+val pair1 = rddnames.map(x=>(x,x.length()))
+pair1.collect()
+val pair2=rddl2.map(x=>(x,x+100))
+pair2.collect()
+val pair3 = rddnames.keyBy(x=>x.length())
+pair3.collect()
+val pairpc = pc.keyBy(x=>x.length())
+pairpc.collect()
+val pair4= rddl1.zip(rddnames)
+val pair4= rddl2.zip(rddnames)
+rddl2.collect()
+rddnames.collect()
+pair4.collect()
+val pair5= rddl1.zip(rddnames)
+pair5.collect()
+val data = sc.textFile("file:///C:\\Users\\Krishna\\data\\latlon.tsv")
+data.take(3)
+val data = sc.textFile("file:///C:\\Users\\Krishna\\data\\latlon.tsv").map(x=>x.split("\t"))
+data.take(3)
+val data = sc.textFile("file:///C:\\Users\\Krishna\\data\\latlon.tsv").map(x=>x.split("\t"))
+val latlon= data.map(x=>((x(1),x(2)),x(0)))
+latlon.take(3)
+val k = latlon.keys
+k.take(3)
+val v = latlon.values
+v.take(4)
+pair1.collect()
+pair1.lookup("ram")
+pair1.lookup("rama")
+latlon.lookup(("43.005895","-71.013202"))
+pair2.collect()
+pair2.groupByKey().collect()
+latlon.groupByKey().take(5)
+pair2.sortByKey().collect()
+pair1.sortByKey().collect()
+pair1.sortByKey(ascending=false).collect()
+pair3.collect()
+pair4.take(4)
+val j1 = pair3.join(pair4)
+j1.collect()
+val j2 = pair3.leftOuteroin(pair4)
+val j2 = pair3.leftOuterJoin(pair4)
+j2.collect()
+val j3 = pair3.rightOuterJoin(pair4)
+j3.collect()
+val j4 = pair3.fullOuterJoin(pair4)
+j4.collect()
+pair1.collect()
+pair2.collect()
+pair2.countByKey()
+pc.collect()
+pc.count()
+val words = pc.map(x=>x.split(" "))
+words.collect()
+val words = pc.flatMap(x=>x.split(" "))
+words.collect()
+words.count()
+words.distinct.count()
+val wpair = words.map(x=>(x,1))
+wpair.collect()
+words.countBykey()
+wpair.countBykey()
+wpair.countByKey()
+val wc =wpair.reduceByKey((x,y)=>x+y)
+wc.collect()
+:quit
+val pc = sc.textFile("purplecow.txt")
+val words = pc.flatMap(x=>x.split(" "))
+val pair = words.map(x=>(x,1))
+val wc= pair.reduceByKey(_+_)
+val pc = sc.textFile("file:///c:\\users\\krishna\\data\\purplecow.txt")
+val words = pc.flatMap(x=>x.split(" "))
+val pair = words.map(x=>(x,1))
+val wc= pair.reduceByKey(_+_)
+wc.collect()
+val order=pair.sortByKey()
+order.collect()
+pair.cache()
+val wc= pair.reduceByKey(_+_)
+wc.collect()
+val order=pair.sortByKey()
+order.collect()
+pair.unpersist()
+pair.persist(StorageLevel.DISK_ONLY)
+from pyspark import StorageLevel
+import org.apache.spark.storage.StorageLevel
+pair.persist(StorageLevel.DISK_ONLY)
+val wc= pair.reduceByKey(_+_)
+wc.collect()
+val order=pair.sortByKey()
+order.collect()
+pair.unpersist()
+pair.persist()
+val wc= pair.reduceByKey(_+_)
+wc.collect()
+val L1=List[2,3,4,56,9]
+val L1=List(2,3,4,56,9)
+val rddl1=sc.parallelize(L1)
+val ac=sc.accumulator(0)
+ac.ac.value
+ac.value
+rddl1.foreach(x=>ac.add(x))
+ac.value
+rddl1.reduce(_+_)
+val lac= sc.longAccumulator("sumval")
+sc.longAccumulator("sumval")
+sumval.
+;
+val lac= sc.longAccumulator("sumval")
+rddl1.foreach(x=>lac.add(x))
+lac.value
+rddl1.foreach(x=>lac.sum(x))
+rddl1.foreach(sum)
+lac.sum
+rddl1.foreach(lac.add(1))
+rddl1.foreachPartition(lac.add(1))
+sc.register(lac)
+rddl1.foreach(x=>lac.add(1))
+rddl1.foreach(x=>lac.count())
+rddl1.foreach(x=>lac.count)
+val names=List("ram","shyam","mohan")
+val rddname=sc.parallelize(names)
+lac.reset()
+lac.value
+ac.
+zero
+ac.value
+rddnames.foreach(x=>lac.add(1))
+rddname.foreach(x=>lac.add(1))
+lac.value
+val data=Seq(("james","smith","NY")
+)
+val data=Seq(("james","smith","NY"),("ram","kumar","FL"),("John","smith","NY"),("Sita","rani","CA"))
+val rdddata= sc.parallielize(data)
+val rdddata= sc.parallelize(data)
+val state=Map(("NY","New York"),("CA","Califronia"),("FL","Florida"))
+val br=sc.broadcast(state)
+val rsult= rdddata.map(f=>{
+val state=f._3
+val fstate=br.value.get(state).get
+(f._1,f._2,fstate)})
+rsult.collect()
+rdddata.collect()
+rddla.collect()
+rddl1.collect()
+rddl1.partition.size
+rddl1.partitions.size
+rddl1.glom.collect()
+val pc = sc.textFile("file:///c:\\users\\krishna\\data\\purplecow.txt")
+val words = pc.flatMap(x=>x.split(" "))
+val pair = words.map(x=>(x,1))
+pc.partitions.size
+words.partitions.size
+ val wc= pair.reduceByKey(_+_)
+wc.partitions.size
+val pc = sc.textFile("file:///c:\\users\\krishna\\data\\purplecow.txt",4)
+pc.partitions.size
+val words = pc.flatMap(x=>x.split(" "))
+val pair = words.map(x=>(x,1))
+ val wc= pair.reduceByKey(_+_)
+wc.partitions.size
+ val wc= pair.reduceByKey(_+_,2)
+pc.partitions.size
+wc.partitions.size
+wc.collect()
+words.partitions.size
+val word1=words.repartition(5)
+words.partitions.size
+word1.partitions.size
+val word1=words.coalesce(3)
+word1.partitions.size
+words.glom.collect()
+word1.glom.collect()
+sc
+spark
+spark.spark.version
+spark.version
+spark.sessionState
+val ppl = spark.read.json("file:///C:\\Users\\Krishna\\data\\people.json")
+ppl.collect()
+  val acc_avro =spark.read.format("avro").load("file:///C:\\Users\\Krishna\\Downloads\\accounts_avro-20220608T070515Z-001\\accounts_avro")
+    acc_avro.show()
+val acc_avro =spark.read.format("avro").load("file:///C:\\Users\\Krishna\\Downloads\\accounts_avro-20220608T070515Z-001\\accounts_avro")
+    acc_avro.show()
+:quit
+ val acc_avro =spark.read.format("avro").load("file:///C:\\Users\\Krishna\\Downloads\\accounts_avro-20220608T070515Z-001\\accounts_avro")
+    acc_avro.show()
+:quit
+val acc_avro =spark.read.format("avro").load("file:///C:\\Users\\Krishna\\Downloads\\accounts_avro-20220608T070515Z-001\\accounts_avro")
+:quit
+val acc_avro =spark.read.format("avro").load("file:///C:\\Users\\Krishna\\Downloads\\accounts_avro-20220608T070515Z-001\\accounts_avro")
+:quit
+val acc_avro =spark.read.format("avro").load("file:///C:\\Users\\Krishna\\Downloads\\accounts_avro-20220608T070515Z-001\\accounts_avro")
+acc_avro.show(3)
+:quit
+spark.conf("spark.jars.packages","org.apache.spark:spark-avro_2.11:2.4.8")
+spark.conf
+  val simpleData = List(Row("James", "Sales", 3000),
+    Row("Michael", "Sales", 4600),
+    Row("Robert", "Sales", 4100),
+    Row("Maria", "Finance", 3000),
+   Row ("James", "Sales", 3000),
+    Row("Scott", "Finance", 3300),
+   Row ("Jen", "Finance", 3900),
+    Row("Jeff", "Marketing", 3000),
+    Row("Kumar", "Marketing", 2000),
+    Row("Saif", "Sales", 4100)
+    )
+val ds = spark.rage(8)
+val ds = spark.range(8)
+val ds1= seq(11,22,13).toDS()
+val ds1= Seq(11,22,13).toDS()
+ds1.show()
+case class Book(name:String,cost : Int)
+val bookdata =Seq(Book("Java definitive Guide",900),Book("Learning spark",800),
+      Book("scala book",378)).toDS()
+val bookdata =Seq(Book("Java definitive Guide",900),Book("Learning spark",800),
+      Book("scala book",378))val bookdata =Seq(Book("Java definitive Guide",900),Book("Learning spark",800),
+ 
+))
+val bookdata =Seq(Book("Java definitive Guide",900),Book("Learning spark",800),
+      Book("scala book",378))
+val rdd1 = sc.parallelize(bookdata)
+val df1=rdd1.toDF()
+val ds1= df1.as[Book]
+ds1.show()
+ val pc= spark.sparkContext.textFile("file:///C:\\Users\\Krishna\\data\\purplecow.txt").as[String]
+ val pc= sc.textFile("file:///C:\\Users\\Krishna\\data\\purplecow.txt").as[String]
+ val pc= sc.textFile("file:///C:\\Users\\Krishna\\data\\purplecow.txt")
+val ds3=spark.createDataset(pc)
+ds3.show()
+import org.apache.spark.sql.functions._
+val words = ds3.split(value," ")
+val words = ds3.split(" ",value)
+val words = ds3.select(split(" ",value))
+val words = ds3.select(split(value," "))
+val words = ds3.select(split(ds3("value")," "))
+words.show()
+val words = ds3.select(explode(split(ds3("value")," ")))
+words.show()
+val words = ds3.select(explode(split(ds3("value")," ")).alias("words"))
+words.show()
+words.groupBy("words").count().show()
+$intp
+def add(x:Int,y:Int):Int= x+y
+add(2,3)
+def add(x:Int,y:Int)= x+y
+def mul(x:Int)=>{x*100)
+def mul=(x:Int)=>{x*100)
+def mul=(x:Int)=>{x*100}
+def div=(x:Int)=>{x/100}
+div(mul(452))
+mul(452)
+def div=(x:Int)=>{x/500}
+div(mul(452))
+var a=10
+var b =10
+b
+b=b+100
+val c=10
+c=c+100
+b="hello"
+var b = "hello"
+var num1 = if(1==0)
+;
+var num1 = if(1===0)
+{}
+var num1 = if(a>100)
+;
+var num1 = print("hi")
+num1
+def sum(a:Int,b:Int)=
+c=a+b
+def sum(a:Int,b:Int)=
+var c= a+b
+def sum(a:Int,b:Int) =
+{
+var c=a+b
+return c}
+def sum(a:Int,b:Int):Int =
+return a+b
+var c:Int=10
+var status:Boolean= true
+var emp=(1,"Ram",567.89)
+emp._1
+def add(a:Int,b:Int):Int=
+{
+var c=a+b
+return c}
+add(3,5)
+re1
+res1
+add(res1,7)
+def add(a:Int,b:Int):Int=
+{
+a=a+b
+return a}
+def add(a:Int,b:Int):Int=
+{ var c=a+b;return c}
+def add(a:Int,b:Int)=
+{ var c=a+b}
+def add(a:Int,b:Int)=
+{ var c=a+b;c}
+add(5,6)
+def add(a:Int,b:Int)=
+{ a+b}
+var i=1
+while(i<=10)
+{
+print(i)
+i+=1
+}
+for(1<-10)
+println(i)
+for(var i<-10)
+for(i<-10)
+println(i)
+for(i<--10)
+for(var i<-1 until 10)
+for( i<-1 until 10)
+println(i)
+var ar = Array(1,2,3,4)
+ar
+ar.size
+ar.length
+ar
+ar[0]
+ar(0)
+ar(3)
+ar(3)=12
+ar
+ar[4]=123
+ar.update(2,50)
+ar
+def cal(f:(a:Int,b:int)->Int,a:Int,b:Int)= f(a,b)
+def cal(f:(x:Int,y:int)->Int,a:Int,b:Int)= f(x,y)
+def cal(f:(Int,Int)->Int,a:Int,b:Int)= f(x,y)
+def cal(f:(Int,Int)=>Int,a:Int,b:Int)= f(x,y)
+def cal(f:(Int,Int)=>Int,a:Int,b:Int)= f(a,b)
+cal((x,y)=>x/y,10,8)
+val f= scala.io.Source.fromFile("a.txt").mkString
+lazy val f= scala.io.Source.fromFile("a.txt").mkString
+lazy val f= scala.io.Source.fromFile("C:\Users\Krishna\data\city").mkString
+lazy val f= scala.io.Source.fromFile("C:\\Users\\Krishna\\data\\city").mkString
+f
+lazy val f= scala.io.Source.fromFile("C:\\Users\\Krishna\\data\\city.txt").mkString
+f
+val t= "a"::"b"::"c"::Nil
+val t1= "a"::"b"::"c"::Nil
+t:::t1
+add(2,3)
+var s= add_
+var s= add _
+s.getClass()
+s(2,3)
+var ar2 = new Array[String](5)
+ar2.size
+ar2(0)="Rose"
+ar2
+ar2(3)="yellow"
+ar2
+ar2(6)="hello"
+ar2.head
+ar2.tail
+var arrbuf = new ArrayBuffer[String]()
+import scala.collection.mutable.ArrayBuffer
+var arrbuf = new ArrayBuffer[String]()
+arrbuf.length
+arrbuf +="Pen"
+arrbuf.size
+arrbuf +="Pencil"
+arrbuf.size
+arrbuf.insert(0,"eraser")
+arrbuf
+arrbuf.insert(2,"sharpner","ink")
+arrbuf
+arrbuf(0)
+arrbuf(0)="Eraser"
+arrbuf
+arrbuf.head
+arrbuf.tail
+arrbuf.tails
+arrbuf.remove()
+arrbuf.remove(1)
+arrbuf
+arrbuf.drop(1)
+arrbuf.size
+arrbuf
+var arrbuf2 =arrbuf.drop(1)
+arrbuf
+arrbuf2
+var t1 =(123,"Ram",45.67,90,"Pune")
+var t1 =(123,"Ram",45.67,90,"Pune",true)
+t1._3
+t1._3="hello"
+var l1 = List(12,3,5,8)
+var l2 = List(12,3,5,8,"hello")
+var l3 ="hello"::"india"
+var l3 ="hello"::"india":Nil
+var l3 ="hello"::"india"::Nil
+l1
+l2
+l3
+val l4 = l1:::l2:::l3
+var l5 = l1:::List(3,7,8,,-1)
+var l5 = l1:::List(3,7,8,89,-1)
+l1(0)
+l1(0)=122
+l1.indexOf(2)
+l1.head
+l1.tail
+l1.indexOf(3)
+l1.init
+l1
+l1.indexOf(5)
+var pop = Map("Maha"->4567,"Del"->3782,"Guj"->1234)
+pop
+pop("Guj")
+pop.size
+pop("guj")
+pop.head
+pop.tail
+pop.init
+pop("Del")=9999
+import scala.collection.mutable.Map
+var pop = Map("Maha"->4567,"Del"->3782,"Guj"->1234)
+pop("Del")=9999
+pop
+pop("WB") +=2345
+pop+=("WB"-> 2345)
+pop.remove("WB")
+pop
+pop.getOrElse("Guj",???)
+pop.getOrElse("guj",???)
+pop.getOrElse("guj","???")
+pop.getOrElse("Guj","???")
+var s = add 1
+var s = add(1,_:Int)
+s(2)
+def add(a:Int,b:Int):Int= a+b
+add(2,3)
+var a1 = add _
+a1(2,3)
+var a2 = add(23,_:Int)
+a2(67)
+def multi(a:Int,b:Int):Int= a*b
+def calculate(f:(Int,Int)=>Int,a:Int,b:Int)= f(a,b)
+calculate(add,5,7)
+calculate(multi,5,7)
+calculate(x,y =>x/y , 100,7)
+calculate((x,y) =>x/y , 100,7)
+val t= (x,y) => x/y
+val t= x,y => x/y
+val t= (x:Int,y:Int) => x/y
+t(3,4)
+calculate(t,45,8)
+l1
+var l1 = List(3,7,8,-1,100)
+l1.foreach(x=>println(x))
+l1.foreach(println(_))
+var result100 = l1.map(x=> x+100)
+l1
+result100
+var result100 = l1.map(x=> add(x,100))
+var result100 = l1.map(add(_,100))
+var names =List("Ram","Shyam","Mohan","Krishna")
+var res122= names.map(x=>(x,x.length))
+res122
+res122.map(x=> (x._2,x._1))
+var names =List("this is a room","this is a pen","good morning everybody")
+names.count
+names.count()
+names.count(_)
+names.count("This")
+names.count("This"==True)
+names.count("This"===True)
+names.count(_=="This")
+var l1 = List(1,3,1,1,4,5,1)
+l1.count(_==1)
+names
+var words = names.map(_.split(" "))
+var words = names.flatMap(_.split(" "))
+words.count(_=="is")
+l1
+l1.reduce(_+_)
+l1.reduce(x,y=>x+y)
+l1.reduce((x,y)=>x+y)
+var output = l1.map(x=> x%2==0)
+var output = l1.filter(x=> x%2==0)
+a
+var a=10
+def add(x:Int)=
+a+x
+add(45)
+def add(x:Int)= x+1
+add(2)
+def add(x:=>Int)= x+1
+def add(x=>Int)= x+1
+def add(x =>Int)= x+1
+def add(x => Int)= x+1
+def add(x: => Int)= x+1
+add(2)
+def add(x: => Int)= 
+{
+println(x+1)
+}
+add(2)
+class emp;
+var e1 = new emp()
+sc
+var l1 = List(2,3,5,6,78,-1)
+var rddlq = sc.parallelize(l1)
+rddlq.collect()
+var pc = sc.textFile("C:\Users\Krishna\data\purplecow.txt")
+var pc = sc.textFile("C:\\Users\\Krishna\\data\\purplecow.txt")
+pc.collect()
+pc.count()
+pc.first()
+pc.take(2)
+rddlq.stats
+rddlq.foreach(x=>println(x))
+rddlq.foreach(println(_))
+var result = rddlq.map(x=>x+100)
+result.collect()
+rddlq.collect()
+var names = List("ram","shyam","mohan","krishna","keshav")
+var len = names.map(_.length)
+len.collect()
+len.collect
+var len1 = names.map(_.length)
+len1.collect
+len1.collect()
+len1.foreach(println(_))
+var rddnames = sc.parallelize(names)
+var len1 = rddnames.map(_.length)
+len1.collect
+var result2 = rddlq.filter(_%2==0)
+result2.collect()
+pc.collect()
+pc.count()
+var words = pc.flatMap(x=>x.split(" "))
+words.collect
+words.count()
+words.distinct
+words.distinct.count
+len1.collect()
+rddlq.collect()
+len1.union(rddlq).collect()
+var result3 = pc.map(_.toUpperCase()).filter(_.startsWith('I'))
+var result3 = pc.map(_.toUpperCase()).filter(_.startsWith("I"))
+result3.collect
+result3.saveAsTextFile("C:\\Users\\Krishna\\data\\pcoutput")
+result3.saveAsObjectFile("C:\\Users\\Krishna\\data\\pcoutput")
+ var data = sc.textFile("C:\\Users\\Krishna\\data\\latlon.tsv")
+data.take(3)
+var data1 = data.map(_.split("\t"))
+data1.take(3)
+var pair = data1.map(x=> ((x(1),x(2)),x(0)))
+pair.take(3)
+var data1 = data.flatMap(_.split("\t"))
+data1.take(3)
+data1.take(10)
+var data = sc.textFile("C:\\Users\\Krishna\\Downloads\\2014-03-14.txt")
+data.take(2)
+var data = sc.textFile("C:\\Users\\Krishna\\Downloads\\2014-03-14")
+data.take(2)
+var data = sc.textFile("C:\\Users\\Krishna\\Downloads\\2014-03-14.txt")
+data.take(2)
+var data = sc.textFile("file:///C:\\Users\\Krishna\\Downloads\\2014-03-14.txt")
+data.take(2)
+var data = sc.textFile("C:\\Users\\Krishna\\weblogs\weblogs")
+var data = sc.textFile("C:\\Users\\Krishna\\weblogs\\weblogs")
+data.take(2)
+var data = sc.textFile("C:\\Users\\Krishna\\Downloads\\weblogs\\weblogs")
+data.take(2)
+vra user= data.map(x=>x.split(" "))
+var user= data.map(x=>x.split(" "))
+user.take(2)
+var pair = user.map(x=>(x(2),1))
+pair.take(2)
+pair.countByKey()
+var pc = sc.textFile("c:\\users\\krishna\\data\\purplecow.txt",4)
+pc.getNumPartitions
+pc.glom
+pc.glom.collect()
+var words = pc.flatMap(_.split(" "))
+  var pair = words.map((_, 1))
+  var wc = pair.reduceByKey((x, y) => x + y)
+wc.getNumPartitions
+  var wc = pair.reduceByKey((x, y) => x + y,5)
+wc.getNumPartitions
+wc.collect()
+var rdd1 =pc.repartition(6)
+rdd1.getNumPartitions
+var rdd2 = pc.coalesce(3)
+rdd2.getNumPartitions
+ var pc = sc.textFile("c:\\users\\krishna\\data\\purplecow.txt")
+var words = pc.flatMap(_.split(" "))
+ var pair = words.map((_, 1))
+ var wc = pair.reduceByKey((x, y) => x + y)
+wc.collect()
+var re= pair.sortByKey()
+re.collect()
+  var pc = sc.textFile("c:\\users\\krishna\\data\\purplecow.txt") 
+ar words = pc.flatMap(_.split(" "))
+  var pair = words.map((_, 1))
+  var wc = pair.reduceByKey((x, y) => x + y)
+var words = pc.flatMap(_.split(" "))
+  var pair = words.map((_, 1))
+  var wc = pair.reduceByKey((x, y) => x + y)
+wc.collect()
+pair.cache()
+  var wc = pair.reduceByKey((x, y) => x + y)
+wc.collect()
+import org.apache.spark.Stor
+pair.persist(DISK_ONLY)
+pair.persist(StorageLevel.DISK_ONLY)
+import org.apache.spark.StorageLevel
+import org.apache.spark.StorageLevel.*
+import org.apache.spark.storage.StorageLevel
+pair.persist(StorageLevel.DISK_ONLY)
+pair.unpersist()
+pair.persist(StorageLevel.DISK_ONLY)
+  var wc = pair.reduceByKey((x, y) => x + y)
+wc.collect()
+spark
+case class latlon(code:Int, lattitude:Float, longitude:Float)
+ var data = sc.textFile(" C:\\Users\\Krishna\\data\\latlon.tsv")
+    var lines = data.map(x=>x.split("\t"))
+    var rows = lines.map(l => latlon(l(0).toInt,l(1).toFloat,l(2).toFloat))
+      var df= rows.toDF()
+df.printSchema
+df.show(3)
+ var data = sc.textFile("C:\\Users\\Krishna\\data\\latlon.tsv")
+data.take(2)
+    var lines = data.map(x=>x.split("\t"))
+    var rows = lines.map(l => latlon(l(0).toInt,l(1).toFloat,l(2).toFloat))
+      var df= rows.toDF()
+df.show(3)
+val a=10
+val b = "hello"
+val c = 2.3
+a=a+100
+var d=10
+d=d+100
+d
+val b="India"
+d="hello"
+var x = println("hello")
+var i:short=8
+var i:Short=8
+var myvar:Byte=4
+def add(x:Int,y:Int):Int =
+{
+var c=x+y
+return c
+}
+add(4,6)
+add.getClass()
+def 
+def show(x:String)=
+{
+x+100
+}
+show("hello")
+show("hello").getClass	
+def display(x:String)=
+{
+println(x)
+}
+for(var i=1 to 10)
+for(i=1 to 10)
+for(var i<-1 to 10)
+for(var i<=1 to 10)
+for( i<=1 to 10)
+for( i<-1 to 10)
+print(i)
+var ar = Array(1,2,4,5,6)
+ar.length
+ar.size
+ar
+ar.head
+ar.tail
+ar.tails
+ar(0)
+ar(0) =12
+ar
+ar(5)
+ar(5)=6
+var ar2 = new Array(4)[String]
+var ar2 = new Array[4](String)
+var ar2 = new Array(4)(String)
+var ar2 =  Array(4)(String)
+var ar2 = Array(4)[String]
+var ar2 = new Array(String)[4]
+var ar2 = new Array(String)(4)
+var ar2 = new Array[String](4)
+ar2(1)="Ram"
+ar2
+var abuf = new ArrayBuffer[String]
+import scala.collection.mutable.ArrayBuffer
+var abuf = new ArrayBuffer[String]
+abuf.length
+abuf(0)="India"
+var abuf = new ArrayBuffer[String]()
+abuf(0)="India"
+abuf.insert("India")
+abuf.insert(0,"India")
+abuf.append("Delhi")
+abuf
+abuf.insert(0,"UK")
+abuf
+abuf(2)="New Delhi"
+abuf
+abuf.remove
+abuf.remove(0)
+abuf
+abuf.drop("India")
+abuf.drop(0)
+abuf
+var a=abuf.drop(0)
+a
+abuf.index("India")
+abuf.indexOf("India")
+abuf.clear
+abuf
+var emp=(1,"ram",23,6789.456)
+emp._2
+emp._2="Ram"
+var l1 = List(2,3,5,-1,100)
+var l2 = List(1:2:3:nil)
+var l2 = List(1::2::3::nil)
+var l2 = List(1::2::3::Nil)
+var l2 = List(l1::2::3::Nil)
+l2.length
+l2(0).length
+l2(0)(0).length
+l1
+l1(0)
+l1(0)=100
+import scala.collection.mutable.ListBuffer
+var l3 = new ListBuffer()["String"]
+var l3 = new ListBuffer()[String]
+var l3 = new ListBuffer[String]()
+l3.append("Hi')
+l3.append("Hi")
+l3++="inia"
+var cars = Map("India"=>1234,"USA"=>234)
+var cars = Map("India"->1234,"USA"->234)
+cars("India")
+cars("India")=2000
+cars("UK")=2000
+import scala.collection.mutable.Map
+cars
+var items = Map("pen"->67)
+items("pen")
+items("pen")=100
+items++=("pencil"->78)
+++items("pencil"->78)
+items +=("pencil"->78)
+items.put("eraser",67)
+items
+var l5 = items.toList
+def add(x:Int,x:Int)=
+x+y
+def add(x:Int,y:Int)=
+x+y
+add(3,4)
+def multi(x:Int,y:Int)=
+x*y
+multi(3,4)
+def compute(f:(Int,Int)=>Int,a:Int,b:Int)=
+f(a,b)
+compute(add,45,8)
+compute(multi,45,8)
+compute((x,y)=>x/y,10,5)
+var f1 = (x:Int,y:Int)=>x+y
+f1(5,7)
+ var l1 = List(1,89,100,-100,1)
+l1.foreach(x=>println(x))
+l1.foreach(println(_))
+l1
+l1.map(x=>x+100)
+l1
+val l2 =l1.map(x=>x+100)
+l2
+l1.map(x=>add(x,100))
+l1.map(add(_,100))
+val names = List("ram","shyam","mihan","sita")
+names.map(x=>(x,x.length))
+val result=names.map(x=>(x,x.length))
+val result1 = result.map(x=>(x._2,x._1))
+val data = List("this is pen","this is a room","That is a tree")
+data.map(_.toUpperCase)
+data.length
+data.size
+val words = data.map(_.split(" "))
+val words = data.flatMap(_.split(" "))
+words.length
+words.size
+words.count("this")
+words.count()
+words.count(x=>"this")
+words.count(_=="this")
+l1
+l1.reduce(_+_)
+l1.reduce((x,y)=>x+y)
+def add(x:Int)=(y:Int)=>x+y
+add(2,3)
+add(2)(3)
+def add(x:Int)=(y:Int)=(z:Int)=>x+y+z
+var i = new Int(10)
+var l1 = List(2,3,5,77,-1)
+val rddl1 = sc.parallelize(l1)
+rddl1.collect()
+val data = sc.textFile("file://c://users//krishna//data//latlon.tsv")
+data.take(2)
+val data = sc.textFile("file:\C:\Users\Krishna\data\latlon.tasv")
+val data = sc.textFile("file:\\C:\\Users\\Krishna\\data\\latlon.tasv")
+data.take(2)
+val data = sc.textFile("file:\\C:\\Users\\Krishna\\data\\latlon.tsv")
+data.take(2)
+val data1 = data.map(_.split("\t"))
+data1.take(2)
+val pair2 = data1.map(x=>((x(1),x(2)),x(0)))
+pair2.take(2)
+pair2.keys().collect()
+pair2.keys.collect()
+pair2.values.collect()
+pair2.lookup((43.005895,-71.013202))
+pair2.lookup(("43.005895","-71.013202"))
+pair2.lookup(("43.005895","-71.013207"))
+  val pc = sc.textFile("file:\\C:\\Users\\Krishna\\data\\purplecow.txt")
+pc.getNumPartitions
+pc.glom
+pc.glom.collect()
+ val words = pc.flatMap(_.split(" "))
+words.getNumPartitions
+words.glom.collect()
+   val pair = words.map((_,1))
+pair.getNumPartitions
+pair.glom.collect
+val wc = pair.reduceByKey(_+_)
+wc.getNumPartitions
+wc.glom.collect
+wc.collect()
+  val pc = sc.textFile("file:\\C:\\Users\\Krishna\\data\\purplecow.txt",4)
+pc.getNumPartitions
+ val words = pc.flatMap(_.split(" "))
+val wc = pair.reduceByKey(_+_)
+   val pair = words.map((_,1))
+val wc = pair.reduceByKey(_+_)
+wc.getNumPartitions
+wc.collect()
+val wc = pair.reduceByKey(_+_,5)
+wc.collect()
+pc.getNumPartitions
+pc.repartition(6)
+pc.getNumPartitions
+val pc1 =pc.repartition(6)
+pc1.getNumPartitions
+val pc2 = pc1.coalesce(3)
+pc1.getNumPartitions
+pc2.getNumPartitions
+al pc = sc.textFile("file:\\C:\\Users\\Krishna\\data\\purplecow.txt")
+    val words = pc.flatMap(_.split(" "))
+val pc = sc.textFile("file:\\C:\\Users\\Krishna\\data\\purplecow.txt")
+    val words = pc.flatMap(_.split(" "))
+val wc = pair.reduceByKey(_+_)
+   val pair = words.map((_,1))
+val wc = pair.reduceByKey(_+_,5)
+wc.collect
+pair.cache
+val wc = pair.reduceByKey(_+_,5)
+wc.collect
+pair.sortByKey().collect
+pair.persist(StorageLevel.DISK_ONLY)
+import org.apache.spark.storage.StorageLevel
+pair.persist(StorageLevel.DISK_ONLY)
+pair.unpersist
+pair.unpersist()
+pair.persist(StorageLevel.DISK_ONLY)
+val wc = pair.reduceByKey(_+_,5)
+wc.collect()
+sc
+exit
+quit
+:quit
+val data = sc.textFile("C:/Users/Krishna/data/sample"
+)
+data.count
+val data = List(1,2,3,4)
+data.map(x=>x+1).collect()
+data.map(x=>x+1).collect
+sc.parallelize(data).map(x=>x+1).collect
+val pc = sc.textFile("C:/Users/Krishna/data/purplecow.txt")
+pc.collect
+var l1 = List(2,3,100,-19,2)
+val rddl1 = sc.parallelize(l1)
+var names = List("ram","sia","ravan","laxman")
+var rddnames= sc.parallelize(names)
+rddl1.collect
+val output = rddl1.map(x=>x+100)
+output.collect
+rddl1.collect
+val result = rddnames.map(x=> x.toUpperCase())
+result.collect
+pc.map(line => line.toUpperCase()).collect
+val re1 = pc.map(line => line.toUpperCase())
+rel.collect
+val re1 = pc.map(line => line.toUpperCase())
+re1.collect
+val even = rddl1.map(x=> x%2==0)
+even.collect()
+val even = rddl1.filter(x=> x%2==0)
+even.collect()
+rddl1.stats
+pc.collect
+pc.count
+val words = pc.map(x=>x.split(" "))
+words.collect
+val words = pc.flatMap(x=>x.split(" "))
+words.count
+words.distinct.count
+val l1 = List(3,4,100,5,3)
+val names = List("ram","sia","ravan","laxman","hanuman")
+val rddl1= sc.parallelize(l1)
+val rddnames = sc.parallelize(names)
+val pair1 = rddnames.map(x=>(x,x.length))
+pair1.collect
+val f1 = sc.textFile("C:/Users/Krishna/data/latlon.tsv")
+f1.take(3)
+val f2 = f1.map(x=> x.split("\t"))
+f2.take(3)
+val latlon = f2.map(x=>((x(1),x(2)),x(0)))
+latlon.take(3)
+val pair2 = rddnames.keyBy(x=>x.length)
+pair2.collect
+val pair3 = rddl1.zip(rddnames)
+rddl1.collect
+rddnames.collect
+pair3.collect
+val k =latlon.keys
+k.take(3)
+val v = latlon.values
+v.take(3)
+latlon.lookup((0210, 43.005895, -71.013202))
+latlon.lookup((43.005895, -71.013202))
+latlon.lookup(("43.005895", "-71.013202"))
+latlon.lookup(("43.005895", "-71.013232"))
+pair1.collect
+pair1.sortByKey().collect()
+pair3.sortByKey.collect
+pair3.sortByKey().collect
+pair1.sortByKey(ascending=false).collect()
+pair3.groupByKey.collect
+pair2.collect
+pair3.collect
+val j1 = pair2.join(pair3)
+j1.collect
+val j2 = pair2.leftOuterJoin(pair3)
+j2.collect
+var a=100
+sc
+var a=100
+a +=100
+a
+val b =100
+b
+b +=100
+val pc = scala.io.Source.fromFile("C:\\Users\\Krishna\\data\\purplecow.txt")
+pc
+pc.toString()
+pc.mkString()
+pc.mkString
+var ar = Array(1,2,4,5,-10,23,90,45,78,3,2,4)
+ar.maxBy(x => x*2)
+ar*2
+var l1 = List(2,3,4,5)
+l1.head
+le.tail
+l1.tail
+var l2 = List(3,6,7,8,10,-1,3)
+l1.diff(l2)
+l1
+l1.fold( (x,y) => x+y)
+l1.fold(_+_)
+l1.foldLeft(_+_)
+l1.foldLeft(0)(_+_)
+l1
+l1.foldLeft(0)(_-_)
+l1.foldLeft(0)(_*_)
+l1.foldLeft(1)(_*_)
+l1
+l1.foldRight(0)(_-_)
+l1.contains(3)
+l1(0)
+l1(0) =56
+l1(4) +=23
+var ar1 = Array(List(100,'Ramnayna',4567.90))
+var ar1 = Array(List(100,"Ramnayna",4567.90))
+var ar1 = Array(List(100,"Ramnayna",4567.90),List(200,"Uungle Book",231))
+var ar1 = Array(List(100,"Ramnayna",4567.90),List(200,"Jngle Book",231))
+var ar1 = Array(List(100,"Ramnayna",4567.90),List(200,"Jungle Book",231))
+ar1(0)
+var emp = (100,"Ram",5678.90)
+emp._1
+emp._2
+emp._1=100
+emp_4 = 123
+emp.productElement
+emp.productElement(_)
+emp.productArity
+emp.productIterator.foreach(println)
+emp.productPrefix
+emp.productElement(0)
+var emp = (100,"Ram",5678.90,"Hyd")
+emp.productPrefix
+emp._1
+emp.productElement(0)
+emp.map(_)
+emp.map(println(_))
+var cities = Map("NY"=>"New York","DEL"=>"New Delhi","CAL"=>"Kolkata")
+var cities = Map("NY"->"New York","DEL"->"New Delhi","CAL"->"Kolkata")
+var population = Map("India"->36748,"USA"->783,"Uk"->728)
+var population = Map("India"->36748,"USA"->783,"Uk"->728.89)
+cities("DEL")
+cities("Del")
+cities.getOrElse("DEL","Not Found")
+cities.getOrElse("DeL","Not Found")
+population
+population("Uk") = 789
+population("KLM") = "Singapor"
+population("KLM") = "Singhapor"
+var population = scala.collection.mutable.Map("India"->36748,"USA"->783,"Uk"->728.89)
+population("KLM") = "Singhapor"
+cities("KLM") = "Singhapor"
+population("KLM") = 345
+population
+population("Uk") =728
+population
+population.length
+population.size
+population.remove("USA")
+population
+var popuk = population("Uk")
+popuk
+popuk +100
+popuk.toInt
+popuk.toString.toInt
+popuk.toString.toInt +100
+var s = Set(1,2,3)
+s
+s += 4
+s
+s += 4
+s += -1
+s
+s += -90
+s
+ s -=90
+s.1
+s.
+var s = Set()
+s +=90
+var s = scala.collection.mutable.Set()
+s +=90
+var s = scala.collection.mutable.Set(Int)
+s +=90
+import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.Map
+import scala.collection.mutable.{Map,ArrayBuffer}
+var Books = Map(100 -> ArrayBuffer("Jungle Book","Rudyard",234))
+Books(100)
+Books(100)(0)
+error: type mismatch;
+ found   : Int(90)
+var Books = Map(100 -> ArrayBuffer("Jungle Book","Rudyard",234), 200->ArrayBuffer("abc","xyz",345))
+var s=0
+for.map( x=> c+x(2))
+Books.map( x=> c+x(2))
+Books.map( x=> x)
+Books.map( x=> x._1)
+Books.map( x=> x._2(2) +c)
+Books.map( x=> x._2(2) +s)
+Books.map( x=> x._2(2))
+Books.map( x=> x._2(2).toInt)
+Books.map( x=> x._2(2).toString)
+Books.map( x=> x._2(2).toString.toInt +s)
+s
+Books.map( x=> s+ x._2(2).toString.toInt )
+s
+var s = 0
+Books.map( x=> s+ x._2(2).toString.toInt )
+Books.map( x=>  x._2(2).toString.toInt )
+Books.map( x=>  x._2(2).toString.toInt +10)
+Books.map( x=> s= x._2(2).toString.toInt +s)
+s
+books.length
+Books.length
+Books.size
+var Books = Map(100 -> ArrayBuffer("Jungle Book","Rudyard",234), 200->ArrayBuffer("abc","xyz",345))
+var sum1 = 0
+Books.map(x =>x)
+Books.map(x =>x._1)
+Books.map(x =>x._2)
+Books.map(x =>x._2(2))
+Books.map(x => sum1 += x._2(2))
+Books.map(x => sum1 = sum+ x._2(2))
+Books.map(x => sum1 = sum1 + x._2(2))
+Books.map(x => x._2(2)  )
+Books.map(x => sum1= x._2(2).toString.toInt +sum1  )
+sum1
+sum1/Books.size
+ l1
+l1.reduceLeft(_+_)
+l1.map(_*2)
+Some(5).getOrElse(1)
+try{
+1/0
+}
+try{
+1/0} catch{
+case e : ArithmeticException => println("not")}
+def email(x:String):Option[String]=
+{
+return "x@gmail.com"}
+def email(x:String):Option[String]=
+{
+ x.split('@') match {
+      case Array(a, b) => Some(a)
+      case _ => None
+    }}
+email("scala.center@epfl.ch") match {
+  case Some(email) => println("good")
+  case None => println("not")
+}
+email("@epfl.ch") match {
+  case Some(email) => println("good")
+  case None => println("not")
+}
+email("@") match {
+  case Some(email) => println("good")
+  case None => println("not")
+}email("@") match {
+  case Some(email) => println("good")
+  case None => println("not")
+email("@") match {
+  case Some(email) => println("good")
+  case None => println("not")
+}
+var a=1
+var b=3
+a+b
+var _a =1
+_a +a
+for (i<=0  to 3)
+for (i<-0  to 3)
+for(j<-0 until 2)
+if(i+j ==3)
+print(i*j)
+var myvar = 10
+myvar
+myvar = myvar +10
+myvar
+val num =10
+num
+num = num+10
+a =100
+Int a = new Int(3)
+var alpha = 'A'
+var name = "India"
+var fl = 3.14
+var fl = 3.14f
+var a =100
+a
+a= a+100
+a= "hi"
+a = a+50.45
+a+50.45
+val a=3.14
+var a=3.14
+var nothing = println("hello India")
+nothing
+var nytype = if(true) "hi"
+var nytype = if(true) "hi" else 2
+nytype
+nytype.asInstanceOf[String]
+var btype =true
+val bytype:Boolean =false
+val b:Int=100
+println(f"($b))
+println(f"($b)")
+println(f"($b%f)")
+println(f"($b%.2f)")
+b = b+100;b-90
+b = {b+100;b-90}
+a = {a+100;a-90}
+a = a+100;a-90
+var a=100;
+{val c=100}
+c
+val file = scala.io.fromFile("C:\trainings\guvi\text.txt").mkString
+val file = scala.io.fromFile("C:\\trainings\\guvi\\text.txt").mkString
+import scala.io
+import scala.io.*
+val file = scala.io.fromFile("C:\\trainings\\guvi\\text.txt").mkString
+val file = scala.io.Source.fromFile("C:\\trainings\\guvi\\text.txt").mkString
+lazy val file = scala.io.Source.fromFile("C:\\trainings\\guvi\\text.txt").mkString
+file
+var a=10
+if (a>0)
+"positive"
+if (a>0) "positive" else "-ve"
+a=-100
+if (a>0) "positive" else "-ve"
+var i=1
+while(i<10)
+print(i)
+var i=1
+while(i<10)
+{
+println(i)
+i =i+1}
+do {
+println(i)
+i=i-1}while(i>1)
+for (t <- 1 to 5){
+println(t)
+}
+t
+for (t<-1 until 5){
+println(t)}
+for(i<-1 to 3;j<-1 to 3) println(i+j)
+def show()= print("hello")
+show()
+show
+def show1()=2
+def add()={
+"hello"
+3.14
+}
+def add()={
+"hi"+"hello"
+3.14}
+add
+def add():Int={2}
+add
+def add():Int={2.0}
+def add(x:Int,y:Int)=x+y
+add(2,3)
+def add(x:Int,y:Int)={
+x=x+y
+x}
+def add(var x:Int,y:Int)={
+def show(x:Float, y:String)={
+print(x)
+print(y)}
+show(4.0,"hi")
+show(4.0f,"hi")
+show(y="India",x=7)
+show("hi",4.0f
+)
+def show(x:Float, y:String="India")={
+println(x)
+print(y)}
+show(4.9f,"Delhi")
+show(3.11f)
+show(y="Mumbai",x=4.3f)
+show(x=9.2f)
+show(y="Pune")
+def show(x:Float=3.14f, y:String)={
+println(x)
+println(y)}
+show(y="India")
+show("India")
+def show(x:Int)={
+if (x>0)
+return 10
+else
+return 200
+}
+def show(x:Int):Int={
+if(x>0)
+return 100
+else
+return 200}
+show(4)
+show(-1)
+a
+b
+var a=10
+var b=a.toFloat()
+var b=a.toFloat
+a.toHexString
+a.toOctalString
+"hello".
+reverse
+var fun = def add()=2
+var fun = x=>2
+var fun = x:Int=>2
+var fun = x:Int=> return 2
+var fun = (x:Int)=> x+2 
+fun
+fun(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
