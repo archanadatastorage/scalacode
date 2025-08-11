@@ -1496,6 +1496,344 @@ var fun = x:Int=> return 2
 var fun = (x:Int)=> x+2 
 fun
 fun(3)
+--------------------------------------
+
+static 
+
+
+class
+  Object class
+
+	main
+
+
+-----------------------------
+No switch... case
+
+Pattern Matching
+match...case
+
+Collecctions : collection of objects
+ - Mutable
+	- update
+	- extended in place
+	- change, add, delete: side effect
+ - immutable
+	- never change
+
+scala.collection.immutable
+
+scala.collection.mutable
+
+Index/ custom index(k,v)
+static memory allocation/ dynamic memory allocation
+homegenous/hetrogenous
+
+
+Array
+
+- immutable
+- static
+-homogenous
+-index
+- update the element
+
+
+ArrayBuffer
+
+- Mutable
+-  dynamic
+- homegenous
+-index
+-update
+
+
+Tuple
+
+- Immutable
+- Hetrogenous
+- static
+- no update
+- index
+
+
+Map
+
+- Immutable
+- custom index
+- no update
+- no extend
+
+Mutable Map
+
+Set
+
+- index
+- unique
+
+List
+- index
+-hetrogenous
+
+--------------------------
+
+Object Orietned Programming
+
+Real World Thing
+  {Attributes + operations} = object
+
+class : definition of the object   / Encapsulation
+
+Dog 
+
+- instantiate /object
+- instance varibles
+- Methods
+- Identifer
+- Constructor
+- state
+- Getter/setter
+
+
+- N objects :Concreate class  
+- 1 object : Singleton		: object
+- no object : Abstract 
+
+
+- Overload
+- Overriding
+
+-Inheritance
+- no interfaces
+Traits
+
+
+public
+private
+protected
+
+
+script  
+program file
+
+-----------------
+
+Constructors
+
+* Primary
+* Auxlillary  : constuctor overloading
+
+Polymorphism
+Method overloading : 1 class
+overriding : Parent / child
+
+Nested  class
+    : class(s) with another class
+    : scope to the containing class
+
+
+Singleton : object class
+
+
+Multiple classes/ relationship
+*Inheritance : IS A
+
+	: multiple classes
+
+
+	Parent/child
+	Superclass/sub class
+
+	- Single : 1 parent
+	- Multiple : multiple parent (Not allowed)
+
+	All the parents must not be classes
+	- 1 parent class + other parents Traits
+	- All the parents are traits
+
+
+	PArent class : Concreate class/ Abstract class
+	child class : Concreate class/ Abstract class
+
+		Parent class		child class		World
+Public		yes			yes			yes
+Protected	Yes			yes			No
+Private		Yes			No			No
+
+Abstract : class
+		abstract method(s)
+		abstarct
+		can be not be instantiated
+		inheriatnce
+final : not inheritable
+
+Trait : extends / with
+
+	mixins 
+		- multiple traits
+		- abstract class
+
+
+* Composition : Has A
+
+--------------------------
+Unit 
+Any = Template 
+Any => Int/Float -> Value class
+Object casting
+
+Functional Programming
+
+	- Pure object
+	- Immutable data
+	- Pure function
+
+def add(a:Int,b:Int):Int={
+val c=a+b
+return c
+}
+	- First class value = function = object/value
+	- Higher order function : receive a function as an argument
+	- lambda exp
+	- what to do rather how to do : Monads
+		loop
+			val+100
+	- currying
+	
+		fun(x,y,z)
+		a=fun(x)
+		b=a(y)
+		c= b(z)
+		fun(x)(y)(z)
+----------------------
+closure
+
+
+
+var num=100
+
+def practice(x:Int)={
+
+  var res = x*num
+	return res
+}
+
+
+----------------------------apply + companion class
+
+treat function as object
+treat object as function : apply()
+
+mutiple apply()
+
+concreate class : n 
+Object class : 1
+
+companion 
+1 program file = same name concreate  + same as Object 
+
+
+---------------------------Exception Handling
+
+object
+
+	Throwable
+		* Exception
+			+ checked Esception
+			+ unchecked Exception
+		*Error
+
+try
+{
+
+expect the Exception raised
+
+}
+catch
+{
+ Handle Exception
+}
+finally
+{
+
+}
+
+
+throw
+custom Exception
+
+-------------- Java/Scala interoperatability
+
+case 1 : java code -> call in scala program
+	- compile java code
+	- use in scala
+
+
+case 2 : scala code -> call into java program
+
+	- $
+	- module
+------------
+
+Any : Value class - Int, Float, Double..
+AnyRef : class/ object
+
+Option : container that may or may not hold a value
+
+	avoid null
+
+	
+	Some : represents a value
+	None : represents nothing/absence of value
+
+----- Case class
+
+case class classname(parameters)
+
+- apply()
+- serializable
+- copy()
+-immutable .... val
+-----------------------------------
+
+scale out
+
+Reactive system
+
+- Responsive
+- Reslient
+- Message : message passing , isolation,  loosely coupled
+- Elastic : 
+
+
+
+Akka Framework
+
+- Actor
+
+Some links
+
+https://reactiveweb.org/building-microservices-with-reactive-programming-a-complete-guide/
+
+
+https://developer.ibm.com/series/learning-path-introduction-to-reactive-systems/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
